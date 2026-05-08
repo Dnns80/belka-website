@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Belka</title>
+<meta name="description" content="Privacy Policy for the Belka iOS app. Local-first, no account, no trackers.">
+<style>
+  :root {
+    --bg: #FFF0E2;
+    --bg-2: #FFE0CB;
+    --ink: #3B1F12;
+    --ink-muted: #7A5240;
+    --rose: #E89588;
+    --mint: #7EB89C;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .container { max-width: 720px; margin: 0 auto; padding: 56px 24px 80px; }
+  .topnav { margin-bottom: 32px; font-size: 14px; color: var(--ink-muted); }
+  .topnav a { color: var(--ink-muted); margin-right: 14px; }
+  h1 { font-family: ui-serif, "New York", Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 12px; }
+  h2 { font-family: ui-serif, "New York", Georgia, serif; font-weight: 600; font-size: 26px; line-height: 1.25; margin: 44px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--bg-2); }
+  h3 { font-weight: 600; font-size: 19px; margin: 28px 0 8px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 16px 20px; padding: 0; }
+  ul li { margin-bottom: 6px; }
+  .stand { color: var(--ink-muted); font-size: 15px; margin-bottom: 32px; }
+  a { color: var(--rose); text-decoration: none; word-break: break-word; }
+  a:hover { text-decoration: underline; }
+  strong { font-weight: 600; }
+  code { background: var(--bg-2); padding: 1px 6px; border-radius: 6px; font-size: 0.92em; }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--bg-2); color: var(--ink-muted); font-size: 14px; text-align: center; }
+  footer a { color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="topnav">
+    <a href="index.html">← Belka</a>
+    <a href="terms-en.html">Terms of Use</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Deutsch</a>
+  </nav>
+
+  <h1>Privacy Policy</h1>
+  <p class="stand">Last updated: May 2026</p>
+
+  <h2>1. Data Controller</h2>
+  <p>The data controller under the EU General Data Protection Regulation (GDPR) and other applicable national data-protection laws is:</p>
+  <p><strong>Dennis Achtziger</strong><br>
+  Email: <a href="mailto:dennis.achtziger@gmail.com">dennis.achtziger@gmail.com</a></p>
+  <p>No data protection officer is appointed because the legal thresholds for mandatory appointment are not met.</p>
+
+  <h2>2. Overview</h2>
+  <p>Belka is an iOS app for learning Russian vocabulary. The app is <strong>local-first</strong>:</p>
+  <ul>
+    <li>There is <strong>no user account, no registration, and no login</strong>.</li>
+    <li>Personal learning data (your first name, topics, daily goal, streak, learning progress) does not leave your device.</li>
+    <li>No cloud backup or cross-device sync.</li>
+  </ul>
+  <p>The app contacts exactly three external services:</p>
+  <ul>
+    <li><strong>Apple App Store / StoreKit</strong> — for purchasing and verifying the <em>Belka Pro</em> subscription.</li>
+    <li><strong>RevenueCat</strong> (RevenueCat, Inc., USA) — subscription-status validation.</li>
+    <li><strong>Supabase</strong> (Supabase Inc., USA) — pseudonymous usage analytics and receipt of voluntary user feedback. You can disable analytics anytime under "Profile → Privacy → Anonymous statistics".</li>
+  </ul>
+
+  <h2>3. Data stored locally on your device</h2>
+  <p>The following data is stored exclusively on your device (in the app sandbox <code>UserDefaults</code> or an App Group container) and does not leave the device:</p>
+  <ul>
+    <li><strong>Random device UUID</strong> (an anonymous identifier generated once on first launch; not linked to your Apple ID, advertising ID, or phone number).</li>
+    <li><strong>First name</strong> you enter during onboarding (free-text; you may use a nickname).</li>
+    <li><strong>Age band</strong> you select during onboarding (a range, not your exact date of birth).</li>
+    <li><strong>Selected topics</strong> (e.g. "Work", "Politics &amp; News").</li>
+    <li><strong>Daily goal</strong> (number of words per day).</li>
+    <li><strong>Optional reminder time</strong> (local notification via <code>UNUserNotificationCenter</code>).</li>
+    <li><strong>Per-word learning progress</strong> (SM-2 algorithm: interval, due date, last rating).</li>
+    <li><strong>Streak status, session history, rating history.</strong></li>
+    <li><strong>Audio cache</strong> (cached pronunciation files; auto-evicted).</li>
+  </ul>
+  <p><strong>Legal basis:</strong> Art. 6(1)(b) GDPR — processing is necessary to perform the contract (delivering the app's functionality).</p>
+  <p><strong>Retention:</strong> As long as the app is installed on your device. Uninstalling the app removes all local data via iOS. Inside the app, you can manually reset local data under "Profile → Privacy → Reset local data".</p>
+
+  <h2>4. Data sent to external services</h2>
+
+  <h3>4.1 RevenueCat (subscription validation)</h3>
+  <p>When you start, restore, or the app refreshes a subscription, the following data is sent to RevenueCat, Inc. (USA):</p>
+  <ul>
+    <li>Anonymous RevenueCat App User ID (derived from the random device UUID — not linked to your name).</li>
+    <li>Device model and iOS version.</li>
+    <li>App version.</li>
+    <li>Apple Store transaction receipt (for verification).</li>
+  </ul>
+  <p><strong>Purpose:</strong> verify your active <em>Belka Pro</em> subscription; abuse prevention.<br>
+  <strong>Legal basis:</strong> Art. 6(1)(b) GDPR (contract performance).<br>
+  <strong>Processor:</strong> RevenueCat, Inc., 75 Broadway, San Francisco, CA 94111, USA. A Data Processing Agreement (DPA) is in place.<br>
+  <strong>RevenueCat privacy policy:</strong> <a href="https://www.revenuecat.com/privacy/">https://www.revenuecat.com/privacy/</a></p>
+
+  <h3>4.2 Supabase — feedback form</h3>
+  <p>If you voluntarily fill in the feedback form (Profile → "Send feedback") and submit it, the following data is sent to Supabase Inc. (USA):</p>
+  <ul>
+    <li>Anonymous device UUID (see above).</li>
+    <li>Your 1–5 star rating.</li>
+    <li>Your free-form feedback text (optional).</li>
+    <li>Your email address — <strong>only if you actively type one in</strong> and tick "I agree to be contacted".</li>
+    <li>App version, iOS version, language/locale.</li>
+  </ul>
+  <p><strong>Purpose:</strong> improving the app; getting back to you when needed.<br>
+  <strong>Legal basis:</strong> Art. 6(1)(a) GDPR (consent — you actively submit the form) or (f) (legitimate interest in product improvement).<br>
+  <strong>Processor:</strong> Supabase Inc., USA. A DPA is in place.<br>
+  <strong>Supabase privacy policy:</strong> <a href="https://supabase.com/privacy">https://supabase.com/privacy</a></p>
+  <p><strong>Retention at Supabase:</strong> Feedback is kept until you request deletion (see § 7). Only POST (write) requests are issued; the app never reads back data from Supabase.</p>
+
+  <h3>4.3 Supabase — pseudonymous usage analytics</h3>
+  <p>Belka collects pseudonymous events by default to understand which features are used, where users get stuck, and whether the learning concept actually works. Data is sent to our own Supabase server (USA); <strong>no third-party analytics SDK is embedded</strong> (no Google Analytics, Firebase, Amplitude, Mixpanel, Facebook, etc.).</p>
+  <p><strong>What is sent:</strong></p>
+  <ul>
+    <li>Anonymous device UUID + a random session UUID (regenerated each app launch).</li>
+    <li>Event name, e.g. <code>app_opened</code>, <code>session_completed</code>, <code>card_rated</code>, <code>paywall_viewed</code>, <code>paywall_purchased</code>, <code>onboarding_completed</code>.</li>
+    <li>Non-personal event properties: e.g. selected plan, topic IDs, session duration, number of cards reviewed, rating ("hard/okay/easy").</li>
+    <li>App version, iOS version, language/locale.</li>
+  </ul>
+  <p><strong>What is NOT sent:</strong> your first name, your email (unless you submit feedback — see § 4.2), your reminder time, your contacts, your location, your Apple ID, advertising IDs, or any input-field contents.</p>
+  <p><strong>Purpose:</strong> product analytics and improvement.<br>
+  <strong>Legal basis:</strong> Art. 6(1)(f) GDPR (legitimate interest in product improvement; pseudonymized data per Art. 4(5) GDPR).<br>
+  <strong>Processor:</strong> Supabase Inc., USA. DPA in place.</p>
+  <p><strong>Opt-out:</strong> You can disable transmission anytime under <strong>"Profile → Privacy → Anonymous statistics"</strong>. Once opted out, future events are neither captured nor buffered; locally buffered, not-yet-sent events are discarded.</p>
+  <p><strong>Retention:</strong> Up to 24 months after collection; raw events are deleted afterwards and only aggregated, non-personal statistics are kept.</p>
+
+  <h2>5. Transfers to third countries (USA)</h2>
+  <p>Both RevenueCat and Supabase process data in the United States. Transfers are based on the European Commission's <strong>Standard Contractual Clauses</strong> (SCCs, Decision 2021/914) and, where applicable, on the <strong>EU-U.S. Data Privacy Framework</strong> when the provider is certified.</p>
+  <p>You may request a copy of the SCCs from the respective providers.</p>
+
+  <h2>6. Tracking, advertising IDs, cookies</h2>
+  <p>Belka uses <strong>no</strong> tracking in the App Tracking Transparency sense, <strong>no</strong> IDFA, <strong>no</strong> advertising identifiers, <strong>no</strong> cookies, and <strong>no</strong> third-party tracking or analytics SDKs (no Google Analytics, Firebase, Facebook SDK, AppsFlyer, Adjust, Branch, Amplitude, Mixpanel, etc.).</p>
+  <p>The pseudonymous analytics described in § 4.3 are sent only to our own server, are never combined with data from other apps or websites, and are never used for advertising or profiling. You can switch them off anytime.</p>
+  <p>The app does not present an App Tracking Transparency dialog because it does no cross-app or cross-site tracking.</p>
+
+  <h2>7. Your rights</h2>
+  <p>Under GDPR, you have the right to:</p>
+  <ul>
+    <li><strong>Access</strong> (Art. 15) — to data concerning you.</li>
+    <li><strong>Rectification</strong> (Art. 16) — of inaccurate data.</li>
+    <li><strong>Erasure</strong> (Art. 17).</li>
+    <li><strong>Restriction</strong> of processing (Art. 18).</li>
+    <li><strong>Data portability</strong> (Art. 20) — where technically possible.</li>
+    <li><strong>Object</strong> (Art. 21) to processing based on legitimate interest.</li>
+    <li><strong>Withdraw consent</strong> (Art. 7(3)) with future effect.</li>
+    <li><strong>Lodge a complaint</strong> with a supervisory authority (Art. 77).</li>
+  </ul>
+  <p><strong>Practical notes:</strong></p>
+  <ul>
+    <li>For local data: use the in-app reset button under "Profile → Privacy → Reset local data", or simply uninstall the app.</li>
+    <li>For pseudonymous analytics: opt out anytime under "Profile → Privacy → Anonymous statistics". To delete events already sent to Supabase, send an informal email to dennis.achtziger@gmail.com including your anonymous device UUID.</li>
+    <li>For feedback you submitted: send an informal email to dennis.achtziger@gmail.com — we need either your anonymous device UUID or the email address you submitted with.</li>
+    <li>For RevenueCat: requests will be forwarded, or you can write directly to <a href="mailto:privacy@revenuecat.com">privacy@revenuecat.com</a>.</li>
+  </ul>
+
+  <h2>8. Local notifications</h2>
+  <p>If you enable a daily reminder, Belka schedules a <strong>local</strong> notification via <code>UNUserNotificationCenter</code>. There is <strong>no</strong> push server, no APNs token transmission, and no data sent to external services. The reminder time stays on your device.</p>
+
+  <h2>9. Data security</h2>
+  <ul>
+    <li>All connections use HTTPS (TLS 1.2+) only.</li>
+    <li>In-app data lives in the iOS sandbox and is protected by iOS file-level encryption.</li>
+    <li>No passwords are stored (there is no login).</li>
+  </ul>
+
+  <h2>10. Changes to this Privacy Policy</h2>
+  <p>We may update this Privacy Policy to reflect changes in law or in the app. The current version is always available inside the app under "Profile → Privacy" and on this page. Material changes are communicated in-app.</p>
+
+  <h2>11. Contact</h2>
+  <p>Questions about privacy? Write to: <a href="mailto:dennis.achtziger@gmail.com"><strong>dennis.achtziger@gmail.com</strong></a> — reply within a few business days.</p>
+
+  <footer>
+    Belka — Dennis Achtziger — <a href="mailto:dennis.achtziger@gmail.com">dennis.achtziger@gmail.com</a>
+  </footer>
+</div>
+</body>
+</html>
