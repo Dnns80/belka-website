@@ -1,0 +1,359 @@
+/* ─── Soft Folk Palette ─────────────────────────────────────────── */
+:root {
+  --bg: #FFF0E2;
+  --bg-2: #FFE0CB;
+  --ink: #3B1F12;
+  --ink-muted: #7A5240;
+  --rose: #E89588;
+  --mint: #7EB89C;
+  --sun: #F5C76E;
+  --pink: #F2A6B0;
+  --white: #ffffff;
+
+  --radius-card: 22px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 12px 40px -16px rgba(59, 31, 18, 0.18);
+  --shadow-cta:  0 10px 24px -10px rgba(232, 149, 136, 0.55);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; }
+
+/* ─── Base ──────────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: clamp(15px, 1.05vw + 13px, 17px);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: var(--rose); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Subtle folk-pattern background — radial pastel washes */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 0%, rgba(245, 199, 110, 0.30), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 95% 25%, rgba(242, 166, 176, 0.28), transparent 60%),
+    radial-gradient(ellipse 45% 30% at 0% 70%, rgba(126, 184, 156, 0.22), transparent 60%);
+  pointer-events: none;
+}
+
+/* ─── Layout ────────────────────────────────────────────────────── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 36px);
+}
+
+/* ─── Hero ──────────────────────────────────────────────────────── */
+.hero {
+  padding: clamp(40px, 8vw, 80px) 0 clamp(48px, 9vw, 96px);
+  text-align: center;
+  position: relative;
+}
+
+.belka-stage {
+  width: clamp(160px, 30vw, 220px);
+  height: clamp(160px, 30vw, 220px);
+  margin: 0 auto clamp(20px, 4vw, 32px);
+  position: relative;
+}
+.belka-stage::before,
+.belka-stage::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.belka-stage::before {
+  inset: -8%;
+  border: 1px solid rgba(232, 149, 136, 0.35);
+}
+.belka-stage::after {
+  inset: 12%;
+  border: 1px dashed rgba(126, 184, 156, 0.40);
+}
+.belka-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+/* Folk dots around belka */
+.belka-stage .dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  z-index: 2;
+}
+.belka-stage .dot.d1 { top: 6%;  left: 50%; background: var(--rose);  transform: translateX(-50%); }
+.belka-stage .dot.d2 { top: 50%; right: -2%; background: var(--sun); transform: translateY(-50%); width: 5px; height: 5px; }
+.belka-stage .dot.d3 { bottom: 8%; left: 50%; background: var(--mint); transform: translateX(-50%); }
+.belka-stage .dot.d4 { top: 50%; left: -2%;  background: var(--pink); transform: translateY(-50%); width: 5px; height: 5px; }
+
+h1.headline {
+  font-family: 'Caprasimo', ui-serif, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 auto clamp(14px, 2vw, 18px);
+  max-width: 14ch;
+  color: var(--ink);
+}
+h1.headline .accent { color: var(--rose); }
+
+.subline {
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 38ch;
+  margin: 0 auto clamp(28px, 4vw, 40px);
+}
+
+/* ─── Waitlist form ─────────────────────────────────────────────── */
+.waitlist {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px;
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-soft);
+}
+@media (min-width: 520px) {
+  .waitlist-form {
+    flex-direction: row;
+    padding: 6px;
+  }
+}
+
+.waitlist-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px; /* min 16px to prevent iOS zoom */
+  padding: 14px 20px;
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+}
+.waitlist-form input[type="email"]::placeholder {
+  color: var(--ink-muted);
+  opacity: 0.7;
+}
+
+.waitlist-form button {
+  border: none;
+  background: var(--ink);
+  color: var(--white);
+  font-family: 'Caprasimo', ui-serif, Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 14px 26px;
+  border-radius: var(--radius-pill);
+  min-height: 48px;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--shadow-cta);
+}
+.waitlist-form button:hover:not(:disabled) {
+  background: var(--rose);
+  transform: translateY(-1px);
+}
+.waitlist-form button:active:not(:disabled) {
+  transform: translateY(0);
+}
+.waitlist-form button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.waitlist-status {
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--ink-muted);
+  min-height: 22px;
+  text-align: center;
+}
+.waitlist-status.error  { color: #B6442B; }
+.waitlist-status.success {
+  color: var(--ink);
+  font-family: 'Caprasimo', ui-serif, Georgia, serif;
+  font-size: 18px;
+}
+
+.waitlist-hint {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  text-align: center;
+  opacity: 0.75;
+}
+
+/* ─── Pillars (3 cards) ─────────────────────────────────────────── */
+.pillars {
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+@media (min-width: 720px) {
+  .pillars-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+}
+.pillar {
+  background: var(--white);
+  border-radius: var(--radius-card);
+  padding: clamp(24px, 3vw, 32px);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+.pillar::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  opacity: 0.55;
+}
+.pillar:nth-child(1)::before { background: var(--sun); }
+.pillar:nth-child(2)::before { background: var(--rose); }
+.pillar:nth-child(3)::before { background: var(--mint); }
+
+.pillar .icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+.pillar h3 {
+  font-family: 'Caprasimo', ui-serif, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.2;
+  margin: 0 0 10px;
+  color: var(--ink);
+  position: relative;
+}
+.pillar p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  position: relative;
+}
+
+/* ─── Screenshots ───────────────────────────────────────────────── */
+.shots {
+  padding: clamp(40px, 7vw, 80px) 0 clamp(48px, 8vw, 96px);
+}
+.shots-head {
+  text-align: center;
+  margin-bottom: clamp(32px, 5vw, 48px);
+}
+.shots-head h2 {
+  font-family: 'Caprasimo', ui-serif, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+.shots-head p {
+  color: var(--ink-muted);
+  margin: 0 auto;
+  max-width: 38ch;
+}
+.shots-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: end;
+  justify-items: center;
+}
+@media (min-width: 720px) {
+  .shots-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+.shot {
+  width: min(280px, 90%);
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -24px rgba(59, 31, 18, 0.30);
+  background: var(--white);
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+.shot img { width: 100%; height: auto; display: block; }
+
+@media (min-width: 720px) {
+  .shot:nth-child(1) { transform: rotate(-2.5deg); margin-top: 24px; }
+  .shot:nth-child(2) { transform: rotate(0.5deg); }
+  .shot:nth-child(3) { transform: rotate(2deg); margin-top: 24px; }
+  .shot:hover { transform: rotate(0deg) scale(1.02); }
+}
+
+/* ─── Footer ────────────────────────────────────────────────────── */
+footer {
+  padding: clamp(36px, 6vw, 64px) 0 clamp(28px, 4vw, 48px);
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-muted);
+  border-top: 1px solid rgba(59, 31, 18, 0.08);
+}
+footer .made {
+  font-family: 'Caprasimo', ui-serif, Georgia, serif;
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+footer .links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+footer .links a { color: var(--ink-muted); }
+
+/* ─── Folk decoration glyphs ────────────────────────────────────── */
+.folk-glyph {
+  position: absolute;
+  font-size: 24px;
+  color: var(--rose);
+  opacity: 0.45;
+  pointer-events: none;
+  user-select: none;
+}
+.folk-glyph.g1 { top: 6%;  left: 8%;  color: var(--mint); transform: rotate(-12deg); }
+.folk-glyph.g2 { top: 12%; right: 6%; color: var(--sun);  transform: rotate(8deg); font-size: 28px; }
+.folk-glyph.g3 { bottom: 8%; left: 5%;  color: var(--pink); transform: rotate(20deg); font-size: 20px; }
+
+/* ─── Reduced motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .shot { transform: rotate(0deg) !important; margin-top: 0 !important; }
+}

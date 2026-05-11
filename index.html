@@ -1,176 +1,138 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Belka — Russisch lernen für Russisch-Deutsche</title>
-<meta name="description" content="Belka ist eine kleine, fokussierte iOS-App für Menschen mit russisch-deutschem Hintergrund, die ihren russischen Wortschatz erwachsen werden lassen wollen.">
-<style>
-  :root {
-    --bg: #FFF0E2;
-    --bg-2: #FFE0CB;
-    --ink: #3B1F12;
-    --ink-muted: #7A5240;
-    --rose: #E89588;
-    --mint: #7EB89C;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 56px 24px 80px;
-  }
-  header.hero {
-    text-align: center;
-    padding: 24px 0 32px;
-  }
-  .belka-emoji {
-    font-size: 64px;
-    line-height: 1;
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-  h1 {
-    font-family: ui-serif, "New York", Georgia, "Iowan Old Style", "Apple Garamond", serif;
-    font-weight: 600;
-    font-size: 44px;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    margin: 8px 0 12px;
-    color: var(--ink);
-  }
-  h2 {
-    font-family: ui-serif, "New York", Georgia, "Iowan Old Style", "Apple Garamond", serif;
-    font-weight: 600;
-    font-size: 28px;
-    line-height: 1.25;
-    margin: 48px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--bg-2);
-  }
-  h3 {
-    font-weight: 600;
-    font-size: 19px;
-    margin: 28px 0 8px;
-    color: var(--ink);
-  }
-  p { margin: 0 0 16px; color: var(--ink); }
-  .lede {
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--ink-muted);
-    max-width: 560px;
-    margin: 0 auto 32px;
-  }
-  a { color: var(--rose); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF0E2">
+  <title>Belka — Russisch-Wortschatz für die deutschsprachige Diaspora</title>
+  <meta name="description" content="Belka ist eine kleine iOS-App für deutschsprachige Menschen mit russischen Wurzeln, die ihren russischen Wortschatz wachsen lassen wollen. Trag dich in die Warteliste ein.">
 
-  .cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin: 40px 0 8px;
-  }
-  @media (min-width: 560px) {
-    .cards { grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  }
-  .card {
-    display: block;
-    background: var(--bg-2);
-    border-radius: 18px;
-    padding: 24px 22px;
-    color: var(--ink);
-    text-decoration: none;
-    transition: transform 0.15s ease, background-color 0.15s ease;
-  }
-  .card:hover {
-    background: #ffd5b8;
-    transform: translateY(-2px);
-    text-decoration: none;
-  }
-  .card-title {
-    font-family: ui-serif, "New York", Georgia, serif;
-    font-size: 22px;
-    font-weight: 600;
-    margin: 0 0 6px;
-    color: var(--ink);
-  }
-  .card-text {
-    font-size: 15px;
-    color: var(--ink-muted);
-    margin: 0;
-    line-height: 1.5;
-  }
+  <!-- Open Graph -->
+  <meta property="og:title" content="Belka — Russisch-Wortschatz für die deutschsprachige Diaspora">
+  <meta property="og:description" content="Eine kleine iOS-App für die russisch-deutsche Community. Komm auf die Warteliste.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/belka.svg">
 
-  .languages {
-    margin-top: 28px;
-    text-align: center;
-    color: var(--ink-muted);
-    font-size: 14px;
-  }
-  .languages a { margin: 0 8px; }
+  <!-- Fonts: Caprasimo (display), Outfit (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 
-  footer {
-    margin-top: 64px;
-    padding-top: 24px;
-    border-top: 1px solid var(--bg-2);
-    color: var(--ink-muted);
-    font-size: 14px;
-    text-align: center;
-  }
-  footer a { color: var(--ink-muted); }
-  .accent { color: var(--mint); }
-</style>
+  <link rel="icon" type="image/svg+xml" href="assets/belka.svg">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-  <header class="hero">
-    <div class="belka-emoji" aria-hidden="true">🐿️</div>
-    <h1>Belka</h1>
-    <p class="lede">Eine kleine iOS-App für Menschen mit russisch-deutschem Hintergrund, die ihren russischen Wortschatz erwachsen werden lassen wollen. Kein Anfängerkurs, kein Login, alles lokal.</p>
-  </header>
 
-  <nav class="cards" aria-label="Rechtliches und Support">
-    <a class="card" href="privacy.html">
-      <p class="card-title">Datenschutz</p>
-      <p class="card-text">Welche Daten Belka verarbeitet — und welche nicht.</p>
-    </a>
-    <a class="card" href="terms.html">
-      <p class="card-title">Nutzungsbedingungen</p>
-      <p class="card-text">Lizenz, Belka Pro, Widerruf, Haftung.</p>
-    </a>
-    <a class="card" href="support.html">
-      <p class="card-title">Support &amp; FAQ</p>
-      <p class="card-text">Häufige Fragen und direkter Kontakt.</p>
-    </a>
-  </nav>
+  <!-- ─── Hero ─────────────────────────────────────────────────── -->
+  <section class="hero">
+    <span class="folk-glyph g1" aria-hidden="true">✿</span>
+    <span class="folk-glyph g2" aria-hidden="true">❋</span>
+    <span class="folk-glyph g3" aria-hidden="true">✦</span>
 
-  <p class="languages">
-    English: <a href="index-en.html">Home</a> · <a href="privacy-en.html">Privacy</a> · <a href="terms-en.html">Terms</a> · <a href="support-en.html">Support</a>
-  </p>
+    <div class="container">
+      <div class="belka-stage">
+        <span class="dot d1" aria-hidden="true"></span>
+        <span class="dot d2" aria-hidden="true"></span>
+        <span class="dot d3" aria-hidden="true"></span>
+        <span class="dot d4" aria-hidden="true"></span>
+        <img src="assets/belka.svg" alt="Belka, das Eichhörnchen-Maskottchen">
+      </div>
 
-  <h2>Was ist Belka?</h2>
-  <p>Belka ist für deutschsprachige Menschen, die im Alltag Deutsch sprechen und zuhause Russisch — und bei denen der russische Wortschatz seit Jahren auf demselben Stand ist. Belka holt diese zweite Sprache zurück ins Erwachsenenleben, mit Wörtern für Politik, Arbeit, Bücher, Behörden, Beziehungen, Gesundheit.</p>
-  <p>Maskottchen ist <span class="accent">Belka</span> (Белка), ein Eichhörnchen.</p>
+      <h1 class="headline">
+        Dein russischer Wortschatz, <span class="accent">erwachsen geworden.</span>
+      </h1>
+      <p class="subline">
+        Eine kleine iOS-App für deutschsprachige Menschen mit russischen Wurzeln —
+        kein Anfängerkurs, kein Login, kein Streak-Druck. Nur die Wörter, die du
+        wirklich brauchst.
+      </p>
 
-  <h2>Prinzipien</h2>
-  <p><strong>Lokal-first.</strong> Kein Konto, keine E-Mail, keine Cloud. Dein Fortschritt bleibt auf deinem iPhone.</p>
-  <p><strong>Klein und ehrlich.</strong> Keine Werbung, keine Tracker, keine Werbe-IDs, keine Drittanbieter-Analytics-SDKs.</p>
-  <p><strong>Kein Anfängerkurs.</strong> Belka setzt da an, wo deine Sprachkenntnisse wirklich sind — bei Themen, die dich heute beschäftigen.</p>
+      <div class="waitlist">
+        <form id="waitlist-form" class="waitlist-form" novalidate>
+          <input
+            type="email"
+            id="waitlist-email"
+            name="email"
+            placeholder="deine@e-mail.de"
+            autocomplete="email"
+            required
+            aria-label="E-Mail-Adresse für Warteliste">
+          <button type="submit" id="waitlist-submit">
+            Auf die Warteliste
+          </button>
+        </form>
+        <p id="waitlist-status" class="waitlist-status" role="status" aria-live="polite"></p>
+        <p class="waitlist-hint">Eine Mail, wenn Belka im App Store ist. Sonst nichts.</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- ─── Pillars (3 cards) ────────────────────────────────────── -->
+  <section class="pillars">
+    <div class="container">
+      <div class="pillars-grid">
+        <article class="pillar">
+          <div class="icon" aria-hidden="true">📖</div>
+          <h3>Wortschatz mit Bedeutung</h3>
+          <p>
+            Keine Tourist-Phrasen, keine "Apfel"-Karten. Belka konzentriert sich auf
+            das, was du im Erwachsenenleben wirklich auf Russisch sagen willst —
+            Beruf, Politik, Bücher, Behörden, Beziehungen.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="icon" aria-hidden="true">🐿️</div>
+          <h3>Belka als Begleiter</h3>
+          <p>
+            Belka — das Eichhörnchen — wartet ruhig auf deine fünf Minuten am Tag.
+            Kein Punkte-Spiel, keine Edelsteine, keine Erinnerungs-Spam. Eine
+            verteilte Wiederholung, die wirklich lernt, was du schon kannst.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="icon" aria-hidden="true">🏡</div>
+          <h3>Für die Diaspora</h3>
+          <p>
+            Gemacht für Russisch-Deutsche, die zuhause Russisch sprechen, im Alltag
+            Deutsch — und merken, dass die zweite Sprache irgendwo zwischen
+            Kindheit und Telefonaten mit den Eltern stehen geblieben ist.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Screenshots ──────────────────────────────────────────── -->
+  <section class="shots">
+    <div class="container">
+      <div class="shots-head">
+        <h2>So sieht's aus.</h2>
+        <p>Klein, ruhig, mit Wärme. Auf deinem iPhone, ohne Konto.</p>
+      </div>
+      <div class="shots-grid">
+        <div class="shot"><img src="assets/screenshots/02-vocab.png" alt="Belka Vokabel-Karte" loading="lazy"></div>
+        <div class="shot"><img src="assets/screenshots/04-today.png" alt="Belka Tagessession" loading="lazy"></div>
+        <div class="shot"><img src="assets/screenshots/05-topics.png" alt="Belka Themen-Auswahl" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ──────────────────────────────────────────────── -->
   <footer>
-    Belka — Dennis Achtziger — <a href="mailto:dennis.achtziger@gmail.com">dennis.achtziger@gmail.com</a>
+    <div class="container">
+      <div class="made">Made with 🐿️ in Berlin</div>
+      <nav class="links" aria-label="Rechtliches">
+        <a href="privacy.html">Datenschutz</a>
+        <a href="terms.html">Nutzungsbedingungen</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:dennis.achtziger@gmail.com">Kontakt</a>
+      </nav>
+    </div>
   </footer>
-</div>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
